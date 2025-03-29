@@ -1,6 +1,7 @@
 import { defineConfig } from "vitepress";
 import tkThemeConfig from "vitepress-theme-teek/config";
 import timeline from "vitepress-markdown-timeline"; // 导入时间线插件
+import { groupIconMdPlugin, groupIconVitePlugin } from "vitepress-plugin-group-icons"; // 导入代码组图标插件
 
 const description = ["Hd Security 使用文档", "认证框架"].toString();
 
@@ -151,7 +152,10 @@ const tkConfig = tkThemeConfig({
     },
   },
 
-  markdownPlugins: [timeline],
+  markdownPlugins: [
+    (md: any) => md.use(timeline), //时间线插件
+    (md: any) => md.use(groupIconMdPlugin), // 代码组图标插件
+  ],
 });
 
 // https://vitepress.dev/reference/site-config
@@ -239,10 +243,15 @@ export default defineConfig({
     },
   },
 
-  // 运行后自动打开网页
-  // vite: {
-  //   server: {
-  //     open: true,
-  //   },
-  // },
+  vite: {
+    plugins: [
+      groupIconVitePlugin(), //代码组图标
+    ],
+    // server: {
+    //   open: true, // 运行后自动打开网页
+    // },
+    build: {
+      chunkSizeWarningLimit: 1500, // 限制警告的块大小
+    },
+  },
 });

@@ -25,6 +25,7 @@ import { useFooterRuntime } from "./helper/useFooterRuntime"; // 首页底部添
 
 import confetti from "./components/Confetti.vue"; //导入五彩纸屑组件
 import "vitepress-markdown-timeline/dist/theme/index.css"; // 引入时间线样式
+import "virtual:group-icons.css"; //代码组图标样式
 
 // 评论组件
 import { init } from "@waline/client";
