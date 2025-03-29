@@ -16,6 +16,7 @@
     "canvas-confetti": "^1.9.3",
     "vitepress": "^1.6.3",
     "vitepress-markdown-timeline": "^1.2.2",
+    "vitepress-plugin-group-icons": "^1.3.8",
     "vitepress-theme-teek": "workspace:*"
   }
 }
